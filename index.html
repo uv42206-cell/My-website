@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RecreatePDF — PDF to DOCX</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><div class="wrap">
+<header><div class="logo">R</div><div><h1>RecreatePDF</h1><p>Recreate your PDF as a Word document</p></div></header>
+<main class="card"><form id="form">
+<label id="drop" class="drop"><input id="pdfs" name="pdfs" type="file" accept=".pdf" multiple hidden>
+<div class="big">📄</div><b id="fileText">Choose PDF file(s)</b><span>Up to 10 files • 100 MB total</span></label>
+
+<h3>Reconstruction mode</h3>
+<div class="modes">
+<label><input type="radio" name="mode" value="editable"><b>Editable</b><small>Recreate text, tables and figures as Word elements.</small></label>
+<label class="selected"><input type="radio" name="mode" value="balanced" checked><b>Balanced</b><small>Best compromise between editability and layout.</small></label>
+<label><input type="radio" name="mode" value="fidelity"><b>Exact Layout</b><small>Highest visual preservation; pages become images in DOCX.</small></label>
+</div>
+
+<div class="checks">
+<label><input type="checkbox" name="images" value="1" checked> Preserve figures & images</label>
+<label><input type="checkbox" name="tables" value="1" checked> Recreate tables</label>
+<label><input type="checkbox" name="ocr" value="1"> OCR scanned PDFs</label>
+<label><input type="checkbox" name="verify" value="1" checked> Verify generated DOCX</label>
+</div>
+<label class="lang">OCR language
+<select name="language"><option value="eng">English</option><option value="eng+hin">English + Hindi (server must have Hindi OCR data)</option></select></label>
+
+<button id="go">Convert PDF to DOCX</button>
+<div id="status"></div><div id="results"></div>
+</form></main>
+<section class="grid">
+<div>📝 <b>Text</b><small>Structured Word text</small></div><div>🖼️ <b>Figures</b><small>Images preserved</small></div>
+<div>📊 <b>Tables</b><small>Editable table attempt</small></div><div>🔍 <b>OCR</b><small>Scanned PDF support</small></div>
+<div>📐 <b>Layout</b><small>Three reconstruction modes</small></div><div>🔒 <b>Privacy</b><small>Temporary processing</small></div>
+</section>
+<p class="note">No converter can guarantee perfect editable reconstruction for every PDF. Exact Layout prioritizes visual fidelity. Files are temporary and automatically cleaned.</p>
+</div><script src="/static/app.js"></script></body></html>
